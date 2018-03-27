@@ -2,8 +2,7 @@ var stringMany = prompt("Ваш бюджет?", "");
 var stringName = prompt("Название вашего магазина?", "");
 stringMany=stringMany/30;
 alert (stringMany);
-var employers ={
-			};
+
 var mainList = {
 	budget: stringMany,
 	nameShop: stringName,
