@@ -1,16 +1,14 @@
 var stringMany = prompt("Ваш бюджет?", "");
+var stringName = prompt("Название вашего магазина?", "");
 stringMany=stringMany/30;
 console.log(stringMany);
-var stringName = prompt("Название вашего магазина?", "");
 var employers ={
-		nameFirstEmployes: "Valiya",
-		nameSecondEmployes: "Galiya",
-	};
+			};
 var mainList = {
-	budget: 300,
-	nameShop: "Shop God",
+	budget: stringMany,
+	nameShop: stringName,
 	shopGoods: [],
-	employers: employers,
+	employers: (),
 	open: true,
 };
 
