@@ -1,17 +1,14 @@
 var stringName
-var mainList = {
-    nameShop: stringName,
-    shopGoods: [],
-    open: true,
-};
+
 
 function showNameShop() {
     stringName = prompt("Название вашего магазина?", "");
-    while (!isNaN(stringName) || stringName == '' || stringName == null) {
+    while (isNaN(stringName) || stringName == '' || stringName == null) {
         console.log("Название вашего магазина?");
         stringName = prompt("Название вашего магазина?", "");
         console.log(stringName);
     }
+    stringName = prompt("Название вашего магазина?", "").toUpperCase();
 }
 showNameShop();
 
@@ -27,29 +24,13 @@ for (var i = 0; i < 5; i++) {
 
     mainList.shopGoods.push(answer);
 }
-
+var mainList = {
+    nameShop: stringName,
+    shopGoods: [],
+    open: true,
+};
 console.log(mainList);
 
-
-mainList.shopGoods.forEach(function(item, i, shopGoods) {
-    if (i == 0) {
-        return;
-    }
-    alert(i + ": " + item + " (У нас вы можете купить: " + shopGoods + ")");
-
+shopGoods.forEach(function(item, i, shopGoods) {
+  alert( i + ": " + item + " (массив:" + arr + ")" );
 });
-/*
-var sortOut = {
-
-    name: "яблоко",
-    name1: "апельсин",
-    name2: "каша"
-
-}
-for (let key in sortOut) {
-    console.log('Наш магазин включает в себя:' + sortOut[key]);
-}*/
-
-for (let key in mainList.shopGoods) {
-    console.log('Наш магазин включает в себя:' + mainList.shopGoods[key]);
-}
