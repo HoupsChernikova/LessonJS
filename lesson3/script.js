@@ -21,7 +21,7 @@ var mainList = {
     budget: stringMany,
     nameShop: stringName,
     shopGoods: [],
-    employers: [],
+    employers: {},
     open: true,
 };
 
@@ -63,7 +63,7 @@ function hireEmployer(nameEmployer) {
     var emp = {};
     emp.name = nameEmployer;
     emp.num = saveNumberEmployer++;
-    mainList.employers.push(emp);
+    mainList.employers[emp.num]=emp.name;
 }
 for (var i = 0; i < 4; i++) {
     var nameEmployer = prompt('Введите имя сотрудника');
@@ -74,6 +74,7 @@ for (var i = 0; i < 4; i++) {
     }
     hireEmployer(nameEmployer);
 }
+console.log( mainList.employers)
 /*
 var i = 0;
 while (i < 3) {
