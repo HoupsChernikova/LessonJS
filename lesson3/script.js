@@ -59,22 +59,24 @@ for (var i = 0; i < 3; i++) {
 console.log(mainList);
 var saveNumberEmployer = 1;
 
-function hireEmployer(nameEmployer) {
-    var emp = {};
-    emp.name = nameEmployer;
-    emp.num = saveNumberEmployer++;
-    mainList.employers[emp.num]=emp.name;
-}
-for (var i = 0; i < 4; i++) {
-    var nameEmployer = prompt('Введите имя сотрудника');
-    while (typeof(nameEmployer) !== 'string'|| !isNaN(nameEmployer) || nameEmployer === '' || nameEmployer.length > 10 || stringMany == null) {
-        console.log('Не верно');
-        nameEmployer = prompt('Введите имя сотрудника');
-        console.log(nameEmployer);
+function hireEmployer() {
+    for (var i = 0; i < 4; i++) {
+        var nameEmployer = prompt('Введите имя сотрудника');
+        while (typeof(nameEmployer) !== 'string' || !isNaN(nameEmployer) || nameEmployer === '' || nameEmployer.length > 10 || stringMany == null) {
+            console.log('Не верно');
+            nameEmployer = prompt('Введите имя сотрудника');
+            console.log(nameEmployer);
+        }
+        var emp = {};
+        emp.name = nameEmployer;
+        emp.num = saveNumberEmployer++;
+        mainList.employers[emp.num] = emp.name;
     }
-    hireEmployer(nameEmployer);
 }
-console.log( mainList.employers)
+
+hireEmployer();
+
+console.log(mainList.employers)
 /*
 var i = 0;
 while (i < 3) {
