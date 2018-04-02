@@ -38,17 +38,7 @@ mainList.shopGoods.forEach(function(item, i, shopGoods) {
     alert(i + ": " + item + " (У нас вы можете купить: " + shopGoods + ")");
 
 });
-/*
-var sortOut = {
 
-    name: "яблоко",
-    name1: "апельсин",
-    name2: "каша"
-
-}
-for (let key in sortOut) {
-    console.log('Наш магазин включает в себя:' + sortOut[key]);
-}*/
 
 for (let key in mainList.shopGoods) {
     console.log('Наш магазин включает в себя:' + mainList.shopGoods[key]);
