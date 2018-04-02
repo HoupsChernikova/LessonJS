@@ -12,12 +12,26 @@ var mainList = {
 };
 
 
-/*for (var i = 0; i < 3; i++) {
-   var answer = prompt("Какой тип товаров будем продавать?", "juсe");
-   mainList.shopGoods.push(answer);
-}
-console.log(mainList);*/
+for (var i = 0; i < 3; i++) {
+    var answer = prompt("Какой тип товаров будем продавать?", "juсe");
+    console.log(answer);
+    /* if ( typeof(answer) === 'string' && answer !== '' && answer.length < 50) {
+         console.log('Все верно');
+         mainList.shopGoods.push(answer);
+     } else {
+         console.log(' НЕ верно ');
+     }*/
+    while (typeof(answer) !==  'string' || answer === '' || answer.length > 50) {
+        console.log('Не верно');
+        answer = prompt("Какой тип товаров будем продавать?", "juсe");
+        console.log(answer);
+    }
 
+    mainList.shopGoods.push(answer);
+}
+
+console.log(mainList);
+/*
 var i = 0;
 while (i < 3) {
     var answer = prompt("Какой тип товаров будем продавать?", "juсe");
