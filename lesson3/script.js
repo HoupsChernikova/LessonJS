@@ -1,16 +1,25 @@
 var stringMany, stringName
 
-
 function showNameShop() {
+    stringName = prompt("Название вашего магазина?", "");
+    while (!isNaN(stringName) || stringName == '' || stringName == null) {
+        console.log("Название вашего магазина?");
+        stringName = prompt("Название вашего магазина?", "");
+        console.log(stringName);
+    }
+}
+showNameShop();
+
+function showBudget() {
     stringMany = prompt("Ваш бюджет?", "");
     while (isNaN(stringMany) || stringMany == '' || stringMany == null) {
         console.log("Ваш бюджет?");
         stringMany = prompt("Ваш бюджет?", "");
         console.log(stringMany);
     }
-    stringName = prompt("Название вашего магазина?", "").toUpperCase();
 }
-showNameShop();
+showBudget();
+
 
 function getBudget() {
     return stringMany / 30;
@@ -41,12 +50,7 @@ alert(discont(false));
 for (var i = 0; i < 3; i++) {
     var answer = prompt("Какой тип товаров будем продавать?", "juсe");
     console.log(answer);
-    /* if ( typeof(answer) === 'string' && answer !== '' && answer.length < 50) {
-         console.log('Все верно');
-         mainList.shopGoods.push(answer);
-     } else {
-         console.log(' НЕ верно ');
-     }*/
+
     while (typeof(answer) !== 'string' || answer === '' || answer.length > 50) {
         console.log('Не верно');
         answer = prompt("Какой тип товаров будем продавать?", "juсe");
@@ -54,6 +58,19 @@ for (var i = 0; i < 3; i++) {
     }
 
     mainList.shopGoods.push(answer);
+}
+
+
+mainList.shopGoods.forEach(function(item, i, shopGoods) {
+    if (i == 0) {
+        return;
+    }
+    alert(i + ": " + item + " (У нас вы можете купить: " + shopGoods + ")");
+
+});
+
+for (let key in mainList.shopGoods) {
+    console.log('Наш магазин включает в себя:' + mainList.shopGoods[key]);
 }
 
 console.log(mainList);
@@ -77,19 +94,3 @@ function hireEmployer() {
 hireEmployer();
 
 console.log(mainList.employers)
-/*
-var i = 0;
-while (i < 3) {
-    var answer = prompt("Какой тип товаров будем продавать?", "juсe");
-    mainList.shopGoods.push(answer);
-    i++ == console.log(mainList);
-}
-
-/*
-var i = 0;
-do {
-    var answer = prompt("Какой тип товаров будем продавать?", "juсe");
-    mainList.shopGoods.push(answer);
-    i++ == console.log(mainList);
-}
-while (i < 3)*/

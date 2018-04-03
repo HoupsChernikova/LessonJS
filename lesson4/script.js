@@ -1,21 +1,64 @@
-var stringName
+var stringMany, stringName
+
 var mainList = {
+    budget: stringMany,
     nameShop: stringName,
     shopGoods: [],
+    employers: {},
     open: true,
+    showNameShop: function showNameShop() {
+        stringName = prompt("Название вашего магазина?", "");
+        while (!isNaN(stringName) || stringName == '' || stringName == null) {
+            console.log("Название вашего магазина?");
+            stringName = prompt("Название вашего магазина?", "");
+            console.log(stringName);
+        }
+    },
+    showBudget: function showBudget() {
+        stringMany = prompt("Ваш бюджет?", "");
+        while (isNaN(stringMany) || stringMany == '' || stringMany == null) {
+            console.log("Ваш бюджет?");
+            stringMany = prompt("Ваш бюджет?", "");
+            console.log(stringMany);
+        }
+    },
+    getBudget: function getBudget() {
+        return stringMany / 30;
+    },
+
+    discont: function discont(discont) {
+        if (discont) {
+            return price * 0.8;
+        }
+        return price;
+    },
+    hireEmployer: function hireEmployer() {
+        for (var i = 0; i < 4; i++) {
+            var nameEmployer = prompt('Введите имя сотрудника');
+            while (typeof(nameEmployer) !== 'string' || !isNaN(nameEmployer) || nameEmployer === '' || nameEmployer.length > 10 || stringMany == null) {
+                console.log('Не верно');
+                nameEmployer = prompt('Введите имя сотрудника');
+                console.log(nameEmployer);
+            }
+            var emp = {};
+            emp.name = nameEmployer;
+            emp.num = saveNumberEmployer++;
+            mainList.employers[emp.num] = emp.name;
+        }
+    },
 };
 
-function showNameShop() {
-    stringName = prompt("Название вашего магазина?", "");
-    while (!isNaN(stringName) || stringName == '' || stringName == null) {
-        console.log("Название вашего магазина?");
-        stringName = prompt("Название вашего магазина?", "");
-        console.log(stringName);
-    }
-}
-showNameShop();
+mainList.showNameShop();
+mainList.showBudget();
+alert(mainList.getBudget());
 
-for (var i = 0; i < 5; i++) {
+var price = 100;
+console.log(price);
+
+alert(mainList.discont(true));
+alert(mainList.discont(false));
+
+for (var i = 0; i < 3; i++) {
     var answer = prompt("Какой тип товаров будем продавать?", "juсe");
     console.log(answer);
 
@@ -28,8 +71,6 @@ for (var i = 0; i < 5; i++) {
     mainList.shopGoods.push(answer);
 }
 
-console.log(mainList);
-
 
 mainList.shopGoods.forEach(function(item, i, shopGoods) {
     if (i == 0) {
@@ -39,7 +80,11 @@ mainList.shopGoods.forEach(function(item, i, shopGoods) {
 
 });
 
-
 for (let key in mainList.shopGoods) {
     console.log('Наш магазин включает в себя:' + mainList.shopGoods[key]);
 }
+
+console.log(mainList);
+var saveNumberEmployer = 1;
+mainList.hireEmployer();
+console.log(mainList.employers)
