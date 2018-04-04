@@ -7,20 +7,10 @@ var mainList = {
     employers: {},
     open: true,
     showNameShop: function showNameShop() {
-        stringName = prompt("Название вашего магазина?", "");
-        while (!isNaN(stringName) || stringName == '' || stringName == null) {
-            console.log("Название вашего магазина?");
-            stringName = prompt("Название вашего магазина?", "");
-            console.log(stringName);
-        }
+      
     },
     showBudget: function showBudget() {
-        stringMany = prompt("Ваш бюджет?", "");
-        while (isNaN(stringMany) || stringMany == '' || stringMany == null) {
-            console.log("Ваш бюджет?");
-            stringMany = prompt("Ваш бюджет?", "");
-            console.log(stringMany);
-        }
+        
     },
     getBudget: function getBudget() {
         return stringMany / 30;
