@@ -139,9 +139,12 @@ emploers_btn.addEventListener('click', () => {
     for (var i = 0; i < hire_employers_item.length; i++) {
         var nameEmployer = hire_employers_item[i].value;
         mainList.employers[i]=nameEmployer;
-        
-   
 
-        employers_value.textContent += mainList.employers[i] + ',';
+  if (i == hire_employers_item.length - 1) {
+            employers_value.textContent += mainList.employers[i];
+  }
+  else {
+            employers_value.textContent += mainList.employers[i] + ',';
+  }
     }
 });
