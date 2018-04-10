@@ -39,16 +39,16 @@ window.addEventListener('DOMContentLoaded', function() {
             seconds = Math.floor((t / 1000) % 60),
             minutes = Math.floor((t / 1000 / 60) % 60),
             hours = Math.floor((t / (1000 * 60 * 60)));
-      if (t<0){
-      	 return {
-            "total": 0,
-            "hours": '00',
-            "minutes": '00',
-            "seconds": '00'
-        };
-      }
+        if (t < 0) {
+            return {
+                "total": 0,
+                "hours": '00',
+                "minutes": '00',
+                "seconds": '00'
+            };
+        }
 
-       
+
     };
 
     function setClock(id, endtime) {
@@ -74,5 +74,42 @@ window.addEventListener('DOMContentLoaded', function() {
 
     }
     setClock('timer', deadline);
+
+    //Modal
+
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+    more.addEventListener('click', function() {
+        this.classList.add('more-splash');
+        overlay.style.display = "block";
+        document.body.style.overflow = 'hidden';
+    });
+    close.addEventListener('click', function() {
+        overlay.style.display = "none";
+        more.classList.remove('more-splash');
+        document.body.style.overflow = '';
+    });
+    //modall LEARN MORE INFORMATION
+    let description_btn = document.querySelectorAll('.description-btn'),
+        overlay_LMI = document.querySelector('.overlay'),
+        close_LMI = document.querySelector('.popup-close');
+
+
+    for (let i = 0; i < description_btn.length; i++) {
+        
+    description_btn[i].addEventListener('click', function() {
+        this.classList.add('more-splash');
+        overlay_LMI.style.display = "block";
+        document.body.style.overflow = 'hidden';
+    });
+    }
+
+    close_LMI.addEventListener('click', function() {
+        overlay_LMI.style.display = "none";
+        description_btn.classList.remove('more-splash');
+        document.body.style.overflow = '';
+    });
 
 });
