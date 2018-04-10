@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', ()  =>{
 
     let tab = document.getElementsByClassName('info-header-tab');
     tabContent = document.getElementsByClassName('info-tabcontent');
@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
     // delegirovaniy
-    info.addEventListener('click', function(event) {
+    info.addEventListener('click', (event) => {
         let target = event.target;
         if (target.className == 'info-header-tab') {
             for (let i = 0; i < tab.length; i++) {
@@ -81,12 +81,12 @@ window.addEventListener('DOMContentLoaded', function() {
         overlay = document.querySelector('.overlay'),
         close = document.querySelector('.popup-close');
 
-    more.addEventListener('click', function() {
-        this.classList.add('more-splash');
+    more.addEventListener('click', () => {
+        more.classList.add('more-splash');
         overlay.style.display = "block";
         document.body.style.overflow = 'hidden';
     });
-    close.addEventListener('click', function() {
+    close.addEventListener('click', () => {
         overlay.style.display = "none";
         more.classList.remove('more-splash');
         document.body.style.overflow = '';
@@ -99,14 +99,14 @@ window.addEventListener('DOMContentLoaded', function() {
 
     for (let i = 0; i < description_btn.length; i++) {
         
-    description_btn[i].addEventListener('click', function() {
-        this.classList.add('more-splash');
+    description_btn[i].addEventListener('click', () => {
+        description_btn[i].classList.add('more-splash');
         overlay_LMI.style.display = "block";
         document.body.style.overflow = 'hidden';
     });
     }
 
-    close_LMI.addEventListener('click', function() {
+    close_LMI.addEventListener('click', () => {
         overlay_LMI.style.display = "none";
         description_btn.classList.remove('more-splash');
         document.body.style.overflow = '';
