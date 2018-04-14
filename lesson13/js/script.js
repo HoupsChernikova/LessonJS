@@ -257,7 +257,7 @@ window.addEventListener('DOMContentLoaded', () => {
     totalValue.innerHTML = 0;
 
     persons.addEventListener('change', function() {
-        if (this.value == '') {
+        if (this.value == '' || isNaN(this.value ) ) {
             totalValue.innerHTML = 0;
             personsSum = 0;
             calc();
@@ -269,7 +269,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     restDays.addEventListener('change', function() {
-        if (persons.value == '') {
+        if (persons.value == ''|| isNaN(persons.value ) ) {
             totalValue.innerHTML = 0;
             daysSum = 0;
             calc();
@@ -282,7 +282,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     place.addEventListener('change', function() {
-        if (restDays.value == '' || persons.value == '') {
+        if (restDays.value == ''|| isNaN(restDays.value) || persons.value == ''|| isNaN(persons.value )) {
             totalValue.innerHTML = 0;
             calc();
         } else {
@@ -292,7 +292,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     
     function calc(){
-        total=personsSum*daysSum*place.options[place.selectedIndex].value;
+        total=(personsSum*daysSum)*4000*place.options[place.selectedIndex].value;
         totalValue.innerHTML=total;
     }
 
