@@ -1,10 +1,11 @@
+  var index = document.querySelector('.main'),
+  custom = document.querySelector('.custom');
 function modal() {
+  
 
-    let close = document.getElementById('popup-btn'),
-        modalWindow = document.querySelector('.popup'),
-        index = document.querySelector('.main'),
-        custom = document.querySelector('.custom'),
-        overlay = document.querySelector('.overlay');
+            let close = document.getElementById('popup-btn'),
+                modalWindow = document.querySelector('.popup'),
+                overlay = document.querySelector('.overlay');
 
 
 
