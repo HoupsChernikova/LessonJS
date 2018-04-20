@@ -1,0 +1,154 @@
+.woman1 {
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  background: #f2f2f2 url("../img/construct-1.png") center no-repeat;
+  background-size: 60%;
+}
+
+.woman2 {
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  background: #f2f2f2 url("../img/construct-2.png") center no-repeat;
+  background-size: 60%;
+}
+
+.woman3 {
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  background: #f2f2f2 url("../img/construct-3.png") center no-repeat;
+  background-size: 60%;
+}
+
+.woman4 {
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  background: #f2f2f2 url("../img/construct-4.png") center no-repeat;
+  background-size: 60%;
+}
+
+.man1 {
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  background: #f2f2f2 url("../img/construct-5.png") center no-repeat;
+  background-size: 60%;
+}
+
+.man2 {
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  background: #f2f2f2 url("../img/construct-6.png") center no-repeat;
+  background-size: 60%;
+}
+
+.man3 {
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  background: #f2f2f2 url("../img/construct-7.png") center no-repeat;
+  background-size: 60%;
+}
+
+.man4 {
+  width: 180px;
+  height: 320px;
+  border-radius: 8px;
+  background: #f2f2f2 url("../img/construct-8.png") center no-repeat;
+  background-size: 60%;
+}
+
+
+.person-woman1 {
+  width: 230px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../img/construct-1.png") center no-repeat;
+  background-size: 70%;
+}
+.person-woman2 {
+  width: 230px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../img/construct-2.png") center no-repeat;
+  background-size: 70%;
+}
+.person-woman3 {
+  width: 230px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../img/construct-3.png") center no-repeat;
+  background-size: 70%;
+}
+.person-woman4 {
+  width: 230px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../img/construct-4.png") center no-repeat;
+  background-size: 70%;
+}
+.person-man1 {
+  width: 230px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../img/construct-5.png") center no-repeat;
+  background-size: 70%;
+}
+.person-man2 {
+  width: 230px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../img/construct-6.png") center no-repeat;
+  background-size: 70%;
+}
+.person-man3 {
+  width: 230px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../img/construct-7.png") center no-repeat;
+  background-size: 70%;
+}
+.person-man4 {
+  width: 230px;
+  height: 500px;
+  margin: 0 auto;
+  background: url("../img/construct-8.png") center no-repeat;
+  background-size: 70%;
+}
+
+ .photowomen1 {
+  background: url("../img/construct-1.png");
+  background-size:92%;
+}
+.photowomen2 {
+  background: url("../img/construct-2.png");
+  background-size:92%;
+}
+.photowomen3 {
+  background: url("../img/construct-3.png");
+  background-size:92%;
+}
+.photowomen4 {
+  background: url("../img/construct-4.png");
+  background-size:92%;
+}
+.photomen1 {
+  background: url("../img/construct-5.png");
+  background-size:92%;
+}
+.photomen2 {
+  background: url("../img/construct-6.png");
+  background-size:92%;
+}
+.photomen3 {
+  background: url("../img/construct-7.png");
+  background-size:92%;
+}
+.photomen4 {
+  background: url("../img/construct-8.png");
+  background-size:92%;
+}
