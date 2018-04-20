@@ -30,11 +30,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     let close = document.getElementById('popup-btn'),
-        modalWindow = document.querySelector('.popup'),       
-        overlay = document.querySelector('.overlay');
-    let  classNames;    
+        modalWindow = document.querySelector('.popup'),
+        overlay = document.querySelector('.overlay'),
+        reset = document.getElementById('reset');
+    let classNames;
 
     close.addEventListener('click', () => {
+        addNewCundidat();
+    });
+
+    reset.addEventListener('click', () => {
+        addNewCundidat();
+       
+}
+    });
+
+    function addNewCundidat() {
         modalWindow.style.display = "none";
         overlay.style.display = "none";
         index.style.display = "none";
@@ -43,7 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
         for (var i = 0; i < custom.children.length; i++) {
             custom.children[i].style.display = "block";
         }
-    });
+    }
     const MyCardId = "myCardId";
 
     function createCard(name,
@@ -81,6 +92,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     ready.addEventListener('click', (event) => {
+        addCustom(event);
+    });
+
+
+
+    function addCustom(event) {
         custom.style.display = "none";
         index.style.display = "block";
         if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
@@ -108,7 +125,7 @@ window.addEventListener('DOMContentLoaded', () => {
             sex,
             view,
             biography.value,
-           // replaseText()
+            // replaseText()
         );
 
 
@@ -119,7 +136,7 @@ window.addEventListener('DOMContentLoaded', () => {
             existingCard.remove();
         }
         cards.appendChild(fullCard);
-    });
+    }
 
     let women = ['woman1', 'woman2', 'woman3', 'woman4'];
     let men = ['man1', 'man2', 'man3', 'man4'];
@@ -133,12 +150,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     prev.addEventListener('click', () => {
         goToSlide(currentSlide - 1);
-        
+
     });
 
     next.addEventListener('click', () => {
         goToSlide(currentSlide + 1);
-        
+
     });
 
     genderMale.addEventListener('change', () => {
@@ -150,10 +167,10 @@ window.addEventListener('DOMContentLoaded', () => {
         goToSlide(currentSlide);
 
     });
-    
+
     function goToSlide(n) {
-        if (n < 0 ) {
-            currentSlide = classNames.length -1;
+        if (n < 0) {
+            currentSlide = classNames.length - 1;
         } else if (n >= 4) {
             currentSlide = 0;
         } else {
@@ -192,19 +209,19 @@ window.addEventListener('DOMContentLoaded', () => {
     let resCount = document.getElementsByClassName('result-count'),
         progressBar = document.getElementsByClassName('progress-bar2');
 
-        //resultCount.innerText = first;
+    //resultCount.innerText = first;
 
-        function replaseText( ) {
-            let first = 0,
-                second = 0,
-                third = 0;
-            resCount[0] = first;
-            resCount[1] = second;
-            resCount[2] = third;
+    function replaseText() {
+        let first = 0,
+            second = 0,
+            third = 0;
+        resCount[0] = first;
+        resCount[1] = second;
+        resCount[2] = third;
 
 
 
-        }
+    }
 
 
 
