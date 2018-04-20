@@ -152,8 +152,8 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     
     function goToSlide(n) {
-        if (n < 0) {
-            currentSlide = 0;
+        if (n < 0 ) {
+            currentSlide = 3;
         } else if (n >= 4) {
             currentSlide = 3;
         } else {
