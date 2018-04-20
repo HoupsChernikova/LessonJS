@@ -82,6 +82,11 @@ window.addEventListener('DOMContentLoaded', () => {
     ready.addEventListener('click', (event) => {
         custom.style.display = "none";
         index.style.display = "block";
+         if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
+            event.preventDefault();
+            return event;
+            
+        }
 
         let sex = "Неизвестно кто";
         if (genderMale.checked) {
@@ -105,9 +110,7 @@ window.addEventListener('DOMContentLoaded', () => {
             " 50%"
         );
 
-        if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
-            event.preventDefault();
-        }
+
 
         let existingCard = document.getElementById(MyCardId);
 
