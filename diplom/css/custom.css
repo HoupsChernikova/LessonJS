@@ -138,17 +138,18 @@
 }
 .photomen1 {
   background: url("../img/construct-5.png");
-  background-size:92%;
+  background-size:contain;
 }
 .photomen2 {
   background: url("../img/construct-6.png");
-  background-size:92%;
+  background-size:contain;
 }
 .photomen3 {
   background: url("../img/construct-7.png");
-  background-size:92%;
+  background-size:contain;
 }
 .photomen4 {
   background: url("../img/construct-8.png");
-  background-size:92%;
+   
+  background-size:contain;
 }

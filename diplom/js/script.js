@@ -30,8 +30,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     let close = document.getElementById('popup-btn'),
-        modalWindow = document.querySelector('.popup'),
+        modalWindow = document.querySelector('.popup'),       
         overlay = document.querySelector('.overlay');
+    let  classNames;    
 
     close.addEventListener('click', () => {
         modalWindow.style.display = "none";
@@ -82,10 +83,10 @@ window.addEventListener('DOMContentLoaded', () => {
     ready.addEventListener('click', (event) => {
         custom.style.display = "none";
         index.style.display = "block";
-         if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
+        if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
             event.preventDefault();
             return event;
-            
+
         }
 
         let sex = "Неизвестно кто";
@@ -107,7 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
             sex,
             view,
             biography.value,
-            " 50%"
+           // replaseText()
         );
 
 
@@ -132,10 +133,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     prev.addEventListener('click', () => {
         goToSlide(currentSlide - 1);
+        currentSlide = (currentSlide-1)%classNames.length;
     });
 
     next.addEventListener('click', () => {
         goToSlide(currentSlide + 1);
+        currentSlide = (currentSlide+1)%classNames.length;
     });
 
     genderMale.addEventListener('change', () => {
@@ -147,7 +150,7 @@ window.addEventListener('DOMContentLoaded', () => {
         goToSlide(currentSlide);
 
     });
-
+    
     function goToSlide(n) {
         if (n < 0) {
             currentSlide = 0;
@@ -157,7 +160,7 @@ window.addEventListener('DOMContentLoaded', () => {
             currentSlide = n;
         }
 
-        let classNames = isMan() ? men : women;
+        classNames = isMan() ? men : women;
         preview.className = classNames[currentSlide];
         photo(currentSlide, isMan());
     }
@@ -185,6 +188,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     }
+    //Voiting result 
+    let resCount = document.getElementsByClassName('result-count'),
+        progressBar = document.getElementsByClassName('progress-bar2');
+
+        //resultCount.innerText = first;
+
+        function replaseText( ) {
+            let first = 0,
+                second = 0,
+                third = 0;
+            resCount[0] = first;
+            resCount[1] = second;
+            resCount[2] = third;
+
+
+
+        }
+
+
+
 
 
 });
