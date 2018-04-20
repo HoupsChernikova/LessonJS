@@ -133,12 +133,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     prev.addEventListener('click', () => {
         goToSlide(currentSlide - 1);
-        currentSlide = (currentSlide-1)%classNames.length;
+        
     });
 
     next.addEventListener('click', () => {
         goToSlide(currentSlide + 1);
-        currentSlide = (currentSlide+1)%classNames.length;
+        
     });
 
     genderMale.addEventListener('change', () => {
@@ -153,9 +153,9 @@ window.addEventListener('DOMContentLoaded', () => {
     
     function goToSlide(n) {
         if (n < 0 ) {
-            currentSlide = 3;
+            currentSlide = classNames.length -1;
         } else if (n >= 4) {
-            currentSlide = 3;
+            currentSlide = 0;
         } else {
             currentSlide = n;
         }
