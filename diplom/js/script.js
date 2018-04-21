@@ -41,9 +41,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     reset.addEventListener('click', () => {
         addNewCundidat();
-       
-}
-    });
+});
+    
 
     function addNewCundidat() {
         modalWindow.style.display = "none";
