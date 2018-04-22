@@ -34,6 +34,9 @@ window.addEventListener('DOMContentLoaded', () => {
         overlay = document.querySelector('.overlay'),
         reset = document.getElementById('reset');
     let classNames;
+    let firstRating = 0,
+        secondRating = 0,
+        thirdRating = 0;
 
     close.addEventListener('click', () => {
         addNewCundidat();
@@ -41,8 +44,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     reset.addEventListener('click', () => {
         addNewCundidat();
-});
-    
+    });
+
 
     function addNewCundidat() {
         modalWindow.style.display = "none";
@@ -62,16 +65,15 @@ window.addEventListener('DOMContentLoaded', () => {
         age,
         sex,
         views,
-        bio,
-        resultCount) {
+        bio) {
         let card = document.createElement('div');
         card.className = "main-cards-item";
         card.id = MyCardId;
         let template = `
                                <div class="candidate-block">
                                                 <div class="${photo} photo " ></div>
-                                                <div class="result">
-                                                    <div class="result-count">${resultCount}</div>
+                                                <div id="res3" class="result">
+                                                    <div class="result-count"></div>
                                                     <div class="progress">
                                                         <div class="progress-bar progress-bar-2"></div>
                                                     </div>
@@ -90,8 +92,18 @@ window.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
+
+
     ready.addEventListener('click', (event) => {
         addCustom(event);
+        firstRating = 0;
+        secondRating = 0;
+        thirdRating = 0;
+        setResult("res1", firstRating);
+        setResult("res2", secondRating);
+        setResult("res3", thirdRating);
+
+
     });
 
 
@@ -123,8 +135,7 @@ window.addEventListener('DOMContentLoaded', () => {
             age.value,
             sex,
             view,
-            biography.value,
-            // replaseText()
+            biography.value
         );
 
 
@@ -205,25 +216,61 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
     //Voiting result 
-    let resCount = document.getElementsByClassName('result-count'),
-        progressBar = document.getElementsByClassName('progress-bar2');
-
-    //resultCount.innerText = first;
-
-    function replaseText() {
-        let first = 0,
-            second = 0,
-            third = 0;
-        resCount[0] = first;
-        resCount[1] = second;
-        resCount[2] = third;
 
 
-
+    function setResult(id, value) {
+        let res = document.getElementById(id);
+        let progressBar = res.getElementsByClassName('progress-bar')[0];
+        let resCount = res.getElementsByClassName('result-count')[0];
+        resCount.innerText = value + '%';
+        progressBar.style.height = value + '%';
     }
+    // hold an election
+    let honestVoting = document.getElementById("voting");
+    let honestVotingExecuted = false;
 
 
+    honestVoting.addEventListener('click', () => {
+        if (honestVotingExecuted) {
+            return;
+        }
 
+        firstRating = 30;
+        secondRating = 30;
+        thirdRating = 40;
 
+        setResult("res1", firstRating);
+        setResult("res2", secondRating);
+        setResult("res3", thirdRating);
+        honestVotingExecuted = true;
+        interveneExecuted = false;
 
+    });
+
+    let intervene = document.getElementById("crime");
+    let interveneExecuted = false;
+
+    intervene.addEventListener('click', () => {
+        if (interveneExecuted || !honestVotingExecuted) {
+            return;
+        }
+
+        firstRating = firstRating - 13;
+        secondRating = secondRating - 12;
+        thirdRating = thirdRating + 25;
+
+        setResult("res1", firstRating);
+        setResult("res2", secondRating);
+        setResult("res3", thirdRating);
+        interveneExecuted = true;
+        honestVotingExecuted = false;
+
+    });
+
+    /*let active = document.querySelector('.main-cards-item-active');
+    function BorderCundidat() {
+        if (firstRating ==secondRating || firstRating == thirdRating || secondRating == thirdRating) {
+            cards.style.removeProperty(active);
+        }
+    }*/
 });
