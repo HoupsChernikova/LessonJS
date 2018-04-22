@@ -267,10 +267,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    /*let active = document.querySelector('.main-cards-item-active');
-    function BorderCundidat() {
-        if (firstRating ==secondRating || firstRating == thirdRating || secondRating == thirdRating) {
-            cards.style.removeProperty(active);
-        }
+    // let active = document.querySelector('.main-cards-item-active');
+
+   /* function BorderCundidat(id, hasBorder) {
+        let active1 = document.getElementById('frame1'),
+            active2 = document.getElementById('frame2'),
+            active3 = document.getElementById(MyCardId);
+        if()        
     }*/
+
+
 });
