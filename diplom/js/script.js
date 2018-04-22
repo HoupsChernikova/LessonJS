@@ -95,6 +95,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     ready.addEventListener('click', (event) => {
+           if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
+            event.preventDefault();
+            return event;
+
+        }
         addCustom(event);
         firstRating = 0;
         secondRating = 0;
@@ -111,11 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
     function addCustom(event) {
         custom.style.display = "none";
         index.style.display = "block";
-        if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
-            event.preventDefault();
-            return event;
-
-        }
+     
 
         let sex = "Неизвестно кто";
         if (genderMale.checked) {
