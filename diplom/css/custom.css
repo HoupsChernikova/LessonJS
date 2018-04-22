@@ -122,34 +122,42 @@
 
  .photowomen1 {
   background: url("../img/construct-1.png");
-  background-size:92%;
+  background-size:contain !important;
+  background-repeat-x: no-repeat;
 }
 .photowomen2 {
   background: url("../img/construct-2.png");
-  background-size:92%;
+   background-size:contain !important;
+  background-repeat-x: no-repeat;
 }
 .photowomen3 {
   background: url("../img/construct-3.png");
-  background-size:92%;
+  background-size:contain !important;
+  background-repeat-x: no-repeat;
 }
 .photowomen4 {
   background: url("../img/construct-4.png");
-  background-size:92%;
-}
+  background-size:contain !important;
+  background-repeat-x: no-repeat;
+ }
 .photomen1 {
   background: url("../img/construct-5.png");
-  background-size:contain;
+  background-size:contain !important;
+  background-repeat-x: no-repeat; 
 }
 .photomen2 {
   background: url("../img/construct-6.png");
-  background-size:contain;
-}
+  background-size:contain !important;
+  background-repeat-x: no-repeat;
+ }
 .photomen3 {
   background: url("../img/construct-7.png");
-  background-size:contain;
-}
+  background-size:contain !important;
+  background-repeat-x: no-repeat;
+ }
 .photomen4 {
   background: url("../img/construct-8.png");
    
-  background-size:contain;
-}
+  background-size:contain !important;
+  background-repeat-x: no-repeat;
+ }

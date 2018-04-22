@@ -43,7 +43,11 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     reset.addEventListener('click', () => {
+        name.value = '';
+        age.value = '';
+        biography.value = '';
         addNewCundidat();
+
     });
 
 
@@ -71,7 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
         card.id = MyCardId;
         let template = `
                                <div class="candidate-block">
-                                                <div class="${photo} photo " ></div>
+                                                <div class="photo ${photo}" ></div>
                                                 <div id="res3" class="result">
                                                     <div class="result-count"></div>
                                                     <div class="progress">
@@ -95,7 +99,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     ready.addEventListener('click', (event) => {
-           if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
+        if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
             event.preventDefault();
             return event;
 
@@ -109,6 +113,8 @@ window.addEventListener('DOMContentLoaded', () => {
         setResult("res3", thirdRating);
 
 
+
+
     });
 
 
@@ -116,7 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
     function addCustom(event) {
         custom.style.display = "none";
         index.style.display = "block";
-     
+
 
         let sex = "Неизвестно кто";
         if (genderMale.checked) {
@@ -225,6 +231,7 @@ window.addEventListener('DOMContentLoaded', () => {
         let resCount = res.getElementsByClassName('result-count')[0];
         resCount.innerText = value + '%';
         progressBar.style.height = value + '%';
+        updateBorderCandidate();
     }
     // hold an election
     let honestVoting = document.getElementById("voting");
@@ -237,8 +244,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         firstRating = 30;
-        secondRating = 30;
-        thirdRating = 40;
+        secondRating = 50;
+        thirdRating = 20;
 
         setResult("res1", firstRating);
         setResult("res2", secondRating);
@@ -269,13 +276,30 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // let active = document.querySelector('.main-cards-item-active');
+    let active1 = document.getElementById('frame1'),
+        active2 = document.getElementById('frame2'),
+        active3 = document.getElementById(MyCardId);
 
-   /* function BorderCundidat(id, hasBorder) {
-        let active1 = document.getElementById('frame1'),
-            active2 = document.getElementById('frame2'),
-            active3 = document.getElementById(MyCardId);
-        if()        
-    }*/
+    function borderCandidate(id, setBorder) {
+        let elem = document.getElementById(id);
+        elem.classList.toggle('main-cards-item-active', setBorder);
+    }
 
+    function updateBorderCandidate() {
 
-});
+        borderCandidate('frame1', false);
+        borderCandidate('frame2', false);
+        borderCandidate(MyCardId, false);
+
+        if (firstRating > secondRating && firstRating > thirdRating) {
+            borderCandidate('frame1', true);
+        }
+        if (secondRating>firstRating && secondRating> thirdRating) {
+            borderCandidate('frame2', true);
+        }
+        if(thirdRating>firstRating && thirdRating>secondRating){
+            borderCandidate(MyCardId, true);
+        }
+    }
+
+   });
