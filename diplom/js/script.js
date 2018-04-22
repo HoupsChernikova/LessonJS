@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                                 </div>
                                             </div>
                                             <div class="name">${name}</div>
-                                            <div class="age">${age}</div>
+                                            <div class="age">${age} лет</div>
                                             Пол:
                                             <div class="sex">${sex}</div>
                                             Полит. взгляды:
@@ -139,7 +139,7 @@ window.addEventListener('DOMContentLoaded', () => {
             name.value,
             addPhotoMin(currentSlide, isMan()),
             biography,
-            age.value,
+            age.value ,
             sex,
             view,
             biography.value
