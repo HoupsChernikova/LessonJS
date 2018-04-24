@@ -123,8 +123,8 @@ window.addEventListener('DOMContentLoaded', () => {
             return event;
 
         }
-       
-        addCustom(event);        
+
+        addCustom(event);
         setResult("res1", firstRating);
         setResult("res2", secondRating);
         setResult("res3", thirdRating);
@@ -133,23 +133,18 @@ window.addEventListener('DOMContentLoaded', () => {
     let result = firstRating + secondRating + thirdRating;
 
     function random() {
-        firstRating = getRandomInt(1, 100);
-        secondRating = getRandomInt(1, 100);
-        thirdRating = getRandomInt(1, 100);
 
-        result = firstRating + secondRating + thirdRating;
-        while (result !== 100) {
-            irstRating = getRandomInt(1, 100);
-            secondRating = getRandomInt(1, 100);
-            thirdRating = getRandomInt(1, 100);
-            result = firstRating + secondRating + thirdRating;
-        }
+        firstRating = getRandomInt(1, 100);
+        secondRating = getRandomInt(1, 100 - firstRating);
+        thirdRating = 100 - firstRating - secondRating;
+
+
     }
 
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-   //Voiting result 
+    //Voiting result 
     function setResult(id, value) {
         let res = document.getElementById(id);
         let progressBar = res.getElementsByClassName('progress-bar')[0];
@@ -159,40 +154,32 @@ window.addEventListener('DOMContentLoaded', () => {
         updateBorderCandidate();
     }
     // hold an election
-   let honestVoting = document.getElementById("voting");
+    let honestVoting = document.getElementById("voting");
 
-    honestVoting.addEventListener('click', () => {       
+    honestVoting.addEventListener('click', () => {
         random();
-       setResult("res1", firstRating);
+        setResult("res1", firstRating);
         setResult("res2", secondRating);
-        setResult("res3", thirdRating);       
+        setResult("res3", thirdRating);
 
     });
 
     let intervene = document.getElementById("crime");
-   
-    function randomAddPlus() {
-        firstRating = getRandomInt(1, 100);
-        secondRating = getRandomInt(1, 100);
-        thirdRating = getRandomInt(1, 100);
-        result = firstRating + secondRating + thirdRating;
 
-        while (result !== 100) {
-            irstRating = getRandomInt(1, 100);
-            secondRating = getRandomInt(1, 100) + 25;
-            thirdRating = getRandomInt(1, 100);
-            result = firstRating + secondRating + thirdRating;
-        }
+    function randomAddPlus() {
+        firstRating = getRandomInt(1, 75);
+        secondRating = getRandomInt(25, 100 - firstRating);
+        thirdRating = 100 - firstRating - secondRating;
     }
 
-    intervene.addEventListener('click', () => {      
+    intervene.addEventListener('click', () => {
 
-       randomAddPlus();
+        randomAddPlus();
         setResult("res1", firstRating);
         setResult("res2", secondRating);
-        setResult("res3", thirdRating);     
+        setResult("res3", thirdRating);
     });
-    
+
 
     function addCustom(event) {
         custom.style.display = "none";
