@@ -120,10 +120,9 @@ window.addEventListener('DOMContentLoaded', () => {
             return event;
 
         }
-        if (/[a-z]+/.test(biography.value)) {
+        if (biography.value.length <=10 || !biography.value.replace(/[^А-я\s]+/i, "")) {
             event.preventDefault();
-            alert('Разрешены только русские буквы');
-             biography.value='';
+            alert('Слишком короткая биография, добавьте информации о кандидате');             
             return event;
 
         }
