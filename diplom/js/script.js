@@ -101,32 +101,36 @@ window.addEventListener('DOMContentLoaded', () => {
     ready.addEventListener('click', (event) => {
         if (name.value == '' || biography.value == '' || age.value == '') {
             event.preventDefault();
-            alert('Вы не ввели ничего, есть пустые значения');
+            alert('Вы не ввели ничего, есть пустые значения');           
             return event;
 
         }
         if (age.value < 18 || age.value > 100 || isNaN(age.value)) {
             event.preventDefault();
             alert('Вы ввели не действительный возраст кандидата.Возраст кандидата не может быть меньше 18 и больше 100');
+           age.value='';
+           
             return event;
         }
-         let per_name = /[^А-я\s]+/i;
+        let per_name = /[^А-я\s]+/i;
         if (per_name.test(name.value)) {
             event.preventDefault();
             alert('Разрешены только русские буквы');
+             name.value='';           
             return event;
 
-        } 
-        if (per_name.test(biography.value)) {
+        }
+        if (/[a-z]+/.test(biography.value)) {
             event.preventDefault();
             alert('Разрешены только русские буквы');
+             biography.value='';
             return event;
 
         }
         /*else {
             name.value.toLowerCase();
-        }*/  
-   
+        }*/
+
 
         addCustom(event);
         firstRating = 0;
@@ -316,8 +320,6 @@ window.addEventListener('DOMContentLoaded', () => {
         honestVotingExecuted = false;
 
     });
-
-    // let active = document.querySelector('.main-cards-item-active');
     let active1 = document.getElementById('frame1'),
         active2 = document.getElementById('frame2'),
         active3 = document.getElementById(MyCardId);
@@ -344,7 +346,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-   
+
 
 
 
