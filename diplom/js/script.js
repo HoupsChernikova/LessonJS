@@ -99,11 +99,35 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     ready.addEventListener('click', (event) => {
-        if (name.value == '' || biography.value == '' || age.value == '' || isNaN(age.value)) {
+        if (name.value == '' || biography.value == '' || age.value == '') {
             event.preventDefault();
+            alert('Вы не ввели ничего, есть пустые значения');
             return event;
 
         }
+        if (age.value < 18 || age.value > 100 || isNaN(age.value)) {
+            event.preventDefault();
+            alert('Вы ввели не действительный возраст кандидата.Возраст кандидата не может быть меньше 18 и больше 100');
+            return event;
+        }
+         let per_name = /[^А-я\s]+/i;
+        if (per_name.test(name.value)) {
+            event.preventDefault();
+            alert('Разрешены только русские буквы');
+            return event;
+
+        } 
+        if (per_name.test(biography.value)) {
+            event.preventDefault();
+            alert('Разрешены только русские буквы');
+            return event;
+
+        }
+        /*else {
+            name.value.toLowerCase();
+        }*/  
+   
+
         addCustom(event);
         firstRating = 0;
         secondRating = 0;
@@ -111,13 +135,27 @@ window.addEventListener('DOMContentLoaded', () => {
         setResult("res1", firstRating);
         setResult("res2", secondRating);
         setResult("res3", thirdRating);
-
-
-
-
     });
 
+    let result = firstRating + secondRating + thirdRating;
 
+    function random() {
+        firstRating = getRandomInt(1, 100);
+        secondRating = getRandomInt(1, 100);
+        thirdRating = getRandomInt(1, 100);
+
+        result = firstRating + secondRating + thirdRating;
+        while (result !== 100) {
+            irstRating = getRandomInt(1, 100);
+            secondRating = getRandomInt(1, 100);
+            thirdRating = getRandomInt(1, 100);
+            result = firstRating + secondRating + thirdRating;
+        }
+    }
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
     function addCustom(event) {
         custom.style.display = "none";
@@ -139,7 +177,7 @@ window.addEventListener('DOMContentLoaded', () => {
             name.value,
             addPhotoMin(currentSlide, isMan()),
             biography,
-            age.value ,
+            age.value,
             sex,
             view,
             biography.value
@@ -243,9 +281,7 @@ window.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        firstRating = 30;
-        secondRating = 50;
-        thirdRating = 20;
+        random();
 
         setResult("res1", firstRating);
         setResult("res2", secondRating);
@@ -262,10 +298,16 @@ window.addEventListener('DOMContentLoaded', () => {
         if (interveneExecuted || !honestVotingExecuted) {
             return;
         }
+        if (firstRating <= 12 || secondRating <= 11 || thirdRating <= 0) {
+            interveneExecuted = true;
+            alert(' Вы не можете вмешатся в выборы, попробуйте проголосовать честно');
+        } else {
+            firstRating = firstRating - 13;
+            secondRating = secondRating - 12;
+            thirdRating = thirdRating + 25;
+        }
 
-        firstRating = firstRating - 13;
-        secondRating = secondRating - 12;
-        thirdRating = thirdRating + 25;
+
 
         setResult("res1", firstRating);
         setResult("res2", secondRating);
@@ -294,12 +336,16 @@ window.addEventListener('DOMContentLoaded', () => {
         if (firstRating > secondRating && firstRating > thirdRating) {
             borderCandidate('frame1', true);
         }
-        if (secondRating>firstRating && secondRating> thirdRating) {
+        if (secondRating > firstRating && secondRating > thirdRating) {
             borderCandidate('frame2', true);
         }
-        if(thirdRating>firstRating && thirdRating>secondRating){
+        if (thirdRating > firstRating && thirdRating > secondRating) {
             borderCandidate(MyCardId, true);
         }
     }
 
-   });
+   
+
+
+
+});
