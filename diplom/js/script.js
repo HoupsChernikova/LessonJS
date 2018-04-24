@@ -125,6 +125,9 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         addCustom(event);
+        firstRating = 0,
+        secondRating = 0,
+        thirdRating = 0;
         setResult("res1", firstRating);
         setResult("res2", secondRating);
         setResult("res3", thirdRating);
@@ -134,7 +137,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function random() {
 
-        firstRating = getRandomInt(1, 100);
+        firstRating = getRandomInt(1, 99);
         secondRating = getRandomInt(1, 100 - firstRating);
         thirdRating = 100 - firstRating - secondRating;
 
@@ -168,8 +171,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function randomAddPlus() {
         firstRating = getRandomInt(1, 75);
-        secondRating = getRandomInt(25, 100 - firstRating);
-        thirdRating = 100 - firstRating - secondRating;
+        thirdRating = getRandomInt(25, 100 - firstRating);
+        secondRating = 100 - firstRating - thirdRating;
     }
 
     intervene.addEventListener('click', () => {
