@@ -137,8 +137,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function random() {
 
-        firstRating = getRandomInt(1, 99);
-        secondRating = getRandomInt(1, 100 - firstRating);
+        firstRating = getRandomInt(1, 98);
+        secondRating = getRandomInt(1, 99 - firstRating);
         thirdRating = 100 - firstRating - secondRating;
 
 
@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function randomAddPlus() {
         firstRating = getRandomInt(1, 75);
-        thirdRating = getRandomInt(25, 100 - firstRating);
+        thirdRating = getRandomInt(25, 99 - firstRating);
         secondRating = 100 - firstRating - thirdRating;
     }
 
